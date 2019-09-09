@@ -26,7 +26,7 @@
 
       const costElement = document.createElement("div");
       costElement.textContent = cost;
-      costElement.className = "item_cost";
+      costElement.className = "item_price";
 
       container.append(image);
       container.append(titleElement);
