@@ -47,4 +47,12 @@ body{
   .content a {
     text-decoration: none;
   }
+  .itemContainer .item_image{
+    width: 200px;
+  }
+  .itemContainer {
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    padding: 20px 0px;
+  }
   
