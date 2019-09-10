@@ -6,7 +6,7 @@
       const cost = urlParams.get("cost");
       const src = urlParams.get("src");
       console.log(title, cost, src);
-      alert(`Title: ${title} cost: ${cost} path: ${src}`)
+      //alert(`Title: ${title} cost: ${cost} path: ${src}`)
 
       const container = document.createElement("div");
       container.className = "itemContainer";
@@ -17,7 +17,7 @@
 
       const titleElement = document.createElement("h2");
       titleElement.textContent = title;
-      title.Element.className = "item_title";
+      titleElement.className = "item_title";
 
       const description = "siin on mingi lambine tekst";
       const textElement = document.createElement("p");
