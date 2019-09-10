@@ -1,2 +1,0 @@
-const phones
-const laptops

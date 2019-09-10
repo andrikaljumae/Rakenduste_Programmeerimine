@@ -1,9 +1,9 @@
 // needs scope
 {
     const itemContainerClass = "s-item";
-    const imageClass = "s-item_image";
-    const titleClass = "s-item_title s-item_title--has-tags";
-    const priceClass = "s-item_price";
+    const imageClass = "s-item__image-img";
+    const titleClass = "s-item__title ";
+    const priceClass = "s-item__price";
 
     const items = document.getElementsByClassName(itemContainerClass);
     
