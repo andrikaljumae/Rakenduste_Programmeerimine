@@ -19,7 +19,7 @@
       titleElement.textContent = title;
       titleElement.className = "item_title";
 
-      const description = "siin on mingi lambine tekst";
+      const description = "";
       const textElement = document.createElement("p");
       textElement.textContent = description;
       textElement.className = "item_description";
@@ -34,6 +34,6 @@
       container.append(costElement);
 
       window.addEventListener("load", () =>{
-        const app =document.getElementById("item-body");
+        const app = document.getElementById("item-body");
         app.append(container);
     });

@@ -1,8 +1,7 @@
-// needs scope
 {
     const itemContainerClass = "s-item";
     const imageClass = "s-item__image-img";
-    const titleClass = "s-item__title ";
+    const titleClass = "s-item__title";
     const priceClass = "s-item__price";
 
     const items = document.getElementsByClassName(itemContainerClass);
@@ -18,8 +17,8 @@
 
         if(!src) return;
 
-        const title = item.getElementsByClassName(titleClass)[0];
-        const price = item.getElementsByClassName(priceClass)[0];
+        const title = item.getElementsByClassName(titleClass)[0].textContent;
+        const price = item.getElementsByClassName(priceClass)[0].textContent;
         
         arr.push({
             imgSrc: src,
