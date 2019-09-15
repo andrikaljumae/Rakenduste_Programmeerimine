@@ -3,7 +3,7 @@ body{
   }
   .header{
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    padding: 10px 25p;
+    padding: 10px 25px;
     background: white;
     display: flex;
     justify-content: space-between;
@@ -20,7 +20,7 @@ body{
     display: flex;
     justify-content: space-between;
   }
-  .content{
+  .content {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -34,7 +34,6 @@ body{
     width: 200px;
     height: 400px;
     margin-bottom: 25px;
-    
   }
   .item:hover{
     transition: 0.5s all;
