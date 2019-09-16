@@ -25,3 +25,7 @@ function createItemElement(item){
     return anchor;
 
 }
+
+module.exports = {
+    createItemElement
+};
