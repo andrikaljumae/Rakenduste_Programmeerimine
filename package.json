@@ -7,15 +7,17 @@
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "start:dev": "npm run build && npm run start"
+    "start:dev": "webpack-dev-server --open"
   },
   "dependencies": {
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.4",
     "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.8"
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0"
   },
   "repository": {
     "type": "git",
