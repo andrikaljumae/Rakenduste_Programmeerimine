@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Header from "./Header.jsx";
 
 
-const root = document.getElementById("app");ˇ
+const root = document.getElementById("app");
 
 const ItemList = () => {
   return (
