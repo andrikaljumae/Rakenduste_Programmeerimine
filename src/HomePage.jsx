@@ -10,7 +10,7 @@ class HomePage extends React.PureComponent{
       this.state = {
         items: phones,
   
-      }
+      };
     }
     handleChange(event){
       switch (event.target.value) {
@@ -27,7 +27,7 @@ class HomePage extends React.PureComponent{
           break;
         }
       }
-    };
+    }
     render(){
       return (
         <>
@@ -38,7 +38,7 @@ class HomePage extends React.PureComponent{
         </select>
         <ItemList items={this.state.items}/>
         </>
-      )
+      );
     }
   }
 
