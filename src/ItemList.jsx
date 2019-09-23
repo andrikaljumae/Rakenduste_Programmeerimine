@@ -12,11 +12,11 @@ const ItemList = (props) => {
                   price = {item.price}
                   title = {item.title}
 
-                  />     
+                  />;     
               })
           }
       </div>
-    )
+    );
   };
 
   const Item = (props) => {
@@ -29,7 +29,7 @@ const ItemList = (props) => {
           </div>
           </Link>
          
-      )
+      );
   };
 
   export default ItemList;
