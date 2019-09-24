@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 const DB = require("./database.js");
 
 app.get("/api/items", (req, res)=>{
-    res.json(DB.getItems());
+    res.json(DB.getItems())
   });
 
   app.get("/api/items/:itemId", (req, res)=>{

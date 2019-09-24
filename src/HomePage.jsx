@@ -1,5 +1,4 @@
 import React from "react";
-//import {laptops, phones} from "./mydatabase.js";
 import Header from "./Header.jsx";
 import ItemList from "./ItemList.jsx";
 
@@ -9,6 +8,7 @@ class HomePage extends React.PureComponent{
       super(props);
       this.state = {
         items: [],
+        selectedCategory: "phones",
   
       };
     }
@@ -32,32 +32,25 @@ fetchItems = () => {
   });
 };
 
-    handleChange(event){
+    handleDropdown(event){
       console.log(event.target.value);
-      // switch (event.target.value) {
-      //   case "phones":{
-      //     this.setState({
-      //       items: phones,
-      //     });
-      //     break;
-      //   }
-      //   case "laptops":{
-      //     this.setState({
-      //       items: laptops,
-      //     });
-      //     break;
-      //   }
-      // }
+      this.setState({
+        selectedCategory: event.target.value
+      });
     }
+
+    getVisibleItems = () => {
+      return this.state.items.filter(item => item.category === this.state.selectedCategory);
+    };
     render(){
       return (
         <>
         <Header/>
-        <select onChange = {this.handleChange.bind(this)}>
+        <select onChange = {this.handleDropdown.bind(this)}>
           <option value="phones">Phones</option>
           <option value="laptops">Laptops</option>   
         </select>
-        <ItemList items={this.state.items}/>
+        <ItemList items={this.getVisibleItems()}/>
         </>
       );
     }
