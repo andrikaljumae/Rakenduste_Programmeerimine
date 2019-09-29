@@ -16,7 +16,7 @@ componentDidMount(){
   this.fetchItems();
 }
 fetchItems = () => {
-  fetch("http://localhost:9000/api/items")
+  fetch("/api/items")
   .then(res => {
     console.log("res", res);
     return res.json();
@@ -58,3 +58,4 @@ fetchItems = () => {
 
 
   export default HomePage;
+  
