@@ -1,5 +1,6 @@
 body{
     margin:0;
+    
   }
   
   .content {
@@ -7,6 +8,12 @@ body{
     justify-content: space-around;
     flex-wrap: wrap;
     box-sizing: border-box;
+    margin-left: 200px;
+    margin-right: 200px;
+    
+    
+    
+  
   }
   .item {
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
@@ -25,15 +32,19 @@ body{
   .item img{
     width: 180px;
     height: 180px;
+    padding: 5px;
   }
   .item_title{
     justify-content: space-between;
     background-color: white;
     color:#e68e3c;
+    padding: 5px;
+    height: 100px;
   }
   .item_price{
     color:#e68e3c;
     font-size: 18px;
+    padding: 5px;
   }
   .content a {
     text-decoration: none;
