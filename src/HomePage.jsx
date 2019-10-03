@@ -79,12 +79,15 @@ fetchItems = () => {
       return (
         <>
         <Header/>
-        <ItemFilters
-          allCategories={this.state.allCategories}
-          handleDropdown={this.handleDropdown}
-          isSelected={this.isSelected}
-        />
-        <div className={"items-settings"}>
+        <div className={"body-wrapper"}>
+          <div className={"filters-wrapper"}>
+            <ItemFilters
+              allCategories={this.state.allCategories}
+              handleDropdown={this.handleDropdown}
+              isSelected={this.isSelected}
+            />
+          </div>
+        <div className={"items-header-wrapper"}>
           <div>
             Items found {items.length} {this.state.selectedCategories.join(", ")}
           </div>
@@ -94,6 +97,8 @@ fetchItems = () => {
           />
         </div>
         <ItemList items={items}/>
+        </div>
+        
         </>
       );
     }
@@ -101,7 +106,7 @@ fetchItems = () => {
 
   const ItemFilters = ({allCategories, handleDropdown, isSelected}) => {
     return (
-      <div className={"itemFilters-wrapper"}>
+      <>
          {
         allCategories.map( categoryName => {
           return (
@@ -114,7 +119,7 @@ fetchItems = () => {
           );
         })
       }
-      </div>
+      </>
     );
   };
 
