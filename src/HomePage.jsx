@@ -75,6 +75,7 @@ fetchItems = () => {
     };
 
     render(){
+      const items = this.getVisibleItems();
       return (
         <>
         <Header/>
@@ -84,12 +85,15 @@ fetchItems = () => {
           isSelected={this.isSelected}
         />
         <div className={"items-settings"}>
+          <div>
+            Items found {items.length} {this.state.selectedCategories.join(", ")}
+          </div>
           <Dropdown
             direction={this.state.sortDirection}
             onChange={this.handleSortDropdown}
           />
         </div>
-        <ItemList items={this.getVisibleItems()}/>
+        <ItemList items={items}/>
         </>
       );
     }
