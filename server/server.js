@@ -6,8 +6,8 @@ const DB = require("./database.js");
 const mongoose = require("mongoose");
 require('dotenv').config();
 
-const result = require('dotenv').config();
-console.log("result", result);
+// const result = require('dotenv').config();
+// console.log("result", result);
 
 
 var kittySchema = new mongoose.Schema({
