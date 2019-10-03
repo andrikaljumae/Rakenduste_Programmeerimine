@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./checkbox.css"; //https://codepen.io/webdevian/pen/NjQdKK/
 
-const Checkbox = ({name, onChange}) => (
+const Checkbox = ({name, onChange, checked}) => (
         <div className="toggler">
             <div className={"toggler_name"}>{name}</div>
-            <input id={name} name={name} type="checkbox" onChange={onChange}/>
+            <input id={name} name={name} type="checkbox" onChange={onChange} checked={checked}/>
                 <label htmlFor={name}>
                     <svg className="toggler-on" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
                         <polyline className="path check" points="100.2,40.2 51.5,88.8 29.8,67.5 "></polyline>
