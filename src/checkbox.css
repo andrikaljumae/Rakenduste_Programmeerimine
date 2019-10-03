@@ -8,7 +8,8 @@
 .toggler_name{
     font-size: 16px;
     margin-bottom: 10px;
-    color: #333;
+    color: #999;
+    text-transform: capitalize;
 }
 .toggler input {
     display: none;
