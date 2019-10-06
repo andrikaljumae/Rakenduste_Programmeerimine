@@ -6,20 +6,6 @@ const DB = require("./database.js");
 const mongoose = require("mongoose");
 require('dotenv').config();
 
-// const result = require('dotenv').config();
-// console.log("result", result);
-
-
-var kittySchema = new mongoose.Schema({
-  name: String
-});
-
-var Kitten = mongoose.model('Kitten', kittySchema);
-
-const kitten1 = new Kitten({
-  name: "red cat 2"
-});
-
 const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@cluster0-qfjwa.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 
@@ -27,14 +13,6 @@ const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@
 mongoose.connect(DB_URL)
   .then(() => {
     console.log("Database access success!");
-    kitten1.save( err => {
-      if(err) {
-        console.error("we had an error"); 
-      }
-      else {
-        console.log("Success save");
-      }
-    });
   })
   .catch( err => {
     console.log("error happened", err);
