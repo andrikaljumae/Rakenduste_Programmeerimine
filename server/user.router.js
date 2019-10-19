@@ -9,7 +9,7 @@ router.get("/api/users", (req, res) => {
     });
 });
 
-router.post("api/users/login",(req, res) => {
+router.post("/api/users/login",(req, res) => {
     User.login(req.body)
     .then( user => {
         res.status(200).json(user);
