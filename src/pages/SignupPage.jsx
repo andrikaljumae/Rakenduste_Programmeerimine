@@ -1,5 +1,6 @@
 import React from "react";
 import "./signupform.css";
+import { Link } from "react-router-dom";
 
 class SignupPage extends React.PureComponent {
 
@@ -14,7 +15,23 @@ class SignupPage extends React.PureComponent {
     
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log("submit", this.state);  
+        console.log("submit", this.state);
+        event.preventDefault();
+        console.log("submit", this.state); 
+        fetch("/api/users/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(this.state),
+        })
+        .then( res => {
+            console.log("response", res);
+        })
+        .catch ( err => {
+            console.log("Error", err);
+        });  
     };
 
     handleChange = (e) => {
@@ -38,7 +55,7 @@ class SignupPage extends React.PureComponent {
                 <ul className="noBullet">
                     <li>
                         <label htmlFor="email"></label>
-                        <input type="text" className="inputFields" placeholder="Email" name= {"email"} onChange = {this.handleChange}/>
+                        <input type="email" className="inputFields" placeholder="Email" name= {"email"} onChange = {this.handleChange}/>
                     </li>
                     <li>
                         <label htmlFor="password"></label>
@@ -52,6 +69,7 @@ class SignupPage extends React.PureComponent {
                     <li id="center-btn">
                         <button className="join-btn"> submit </button>
                     </li>
+                    <p className="message">Already registered? <Link to={"/login"}>Login</Link></p>
                 </ul>
             </form>
         </div>
