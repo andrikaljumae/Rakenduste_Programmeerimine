@@ -4,6 +4,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3000;
 const mongoose = require("mongoose");
 const itemRouter = require("./item.router.js");
+const authRouter = require("./auth.router.js");
 const userRouter = require("./user.router.js");
 const DB = require("./database.js");
 const Item = require("./item.model.js");
@@ -18,8 +19,9 @@ const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@
 
 app.use(bodyParser.json());
 
-app.use(itemRouter);
-app.use(userRouter);
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/", itemRouter);
+app.use("/api/v1/", userRouter);
 
 
 app.get('/', (req, res) => {
