@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
-
 const userSchema = new mongoose.Schema ({ 
     email: { type: String, required: true , unique: true},
     hash: { type: String, required: true },
@@ -9,12 +8,16 @@ const userSchema = new mongoose.Schema ({
 });
 userSchema.statics.login = function({email, password}){
     return new Promise((resolve, reject) => {
-       this.findOne({email}, (err, doc) => {
+       this.findOne({email}, (err, userDoc) => {
            if(err) return reject(err);
-           if(doc === 0) return reject("User not found!");
-           bcrypt.compare(password, doc.hash, function(err, result) {
+           if(userDoc === 0) return reject("User not found!");
+           bcrypt.compare(password, userDoc.hash, function(err, result) {
                if(err) return reject(err);
-               resolve(result);
+               resolve( {
+                   email: userDoc.email,
+                   createdAt: userDoc.createdAt,
+                   _id: userDoc._id,
+               });
            });
        }); 
     });    
