@@ -1,6 +1,5 @@
-const User = require("./user.model");
+const User = require("./user.model.js");
 const jwt = require("jsonwebtoken");
-
 
 exports.login=(req, res) => {
     User.login(req.body)
@@ -11,7 +10,7 @@ exports.login=(req, res) => {
             }
             res.status(200).send({
                 user,
-                token, 
+                token,
             });
         });
     })
