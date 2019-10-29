@@ -2,11 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import HomePage from "./pages/HomePage.jsx";
 import ItemPage from "./pages/ItemPage.jsx";
-import { BrowserRouter, Route} from "react-router-dom";
+import { BrowserRouter, Route, Switch} from "react-router-dom";
 import Header from "./components/Header.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import SignupPage from "./pages/SignupPage.jsx";
 import UserPage from "./pages/UserPage.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 
 class App extends React.Component {
@@ -36,6 +37,7 @@ handleLogin = ({token, user}) => {
         user={this.state.user} 
        />} 
       /> 
+      <Switch>
       <Route path="/" exact component={HomePage} />
       <Route 
       path="/login" 
@@ -55,6 +57,8 @@ handleLogin = ({token, user}) => {
         }} 
       />
       <Route path="/items/:itemId" exact component={ItemPage} />
+      <Route component = {NotFound} />
+      </Switch>
     </BrowserRouter>
     );
   }
