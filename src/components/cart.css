@@ -4,9 +4,20 @@
     margin-top: 10px;
 }
 
-.cart .cell {
-    padding: 10px;
+.cart .cell:first-child {
+    padding-left: 20px;
 }
+
+.cart .cell {
+    flex-basis: 980px;
+    padding-left: 40px;
+}
+
+.cart .cell img {
+    max-width: 140px;
+    
+}
+
 
 .cart .row {
     display: flex;
@@ -16,7 +27,7 @@
 
 .cart .row:first-child {
     border-bottom: 1px solid rgba(51, 51, 51, 0.37);
-    padding: 10px 0;
+    padding-left: 20px;
 }
 
 .cart .row:last-child {
