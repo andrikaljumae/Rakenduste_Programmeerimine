@@ -10,6 +10,11 @@
     
 }
 
+.btn--fancy:hover{
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
 .btn-inner {
     display: flex;
     align-items: center;
