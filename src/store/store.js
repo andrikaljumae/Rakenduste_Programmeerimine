@@ -6,9 +6,9 @@ import {createStore} from "redux";
 
 const ITEM_ADDED = "ITEM_ADDED";
 
-export const addItem = (_id) => ({
+export const addItem = (item) => ({
   type: ITEM_ADDED,
-  payload: _id,
+  payload: item,
 });
 
 //const ITEM_REMOVED = "ITEM_REMOVED";
@@ -20,7 +20,7 @@ const initialState = {
     token: null,
   },
   cart: [
-    //some-id-123
+    //item
   ],
 };
 

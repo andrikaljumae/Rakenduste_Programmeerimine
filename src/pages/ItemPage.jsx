@@ -35,7 +35,7 @@ class ItemPage extends React.PureComponent{
   };
 
   handleBuy = () => {
-    this.props.dispatch(addItem(this.state._id));  
+    this.props.dispatch(addItem(this.state));  
   }
     render(){
       return (
