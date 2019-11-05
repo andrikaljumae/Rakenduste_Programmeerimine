@@ -10,7 +10,7 @@
 
 .cart .cell {
     flex-basis: 150px;
-    padding-left: 15px;
+  
 }
 
 .cell--grow {
@@ -36,7 +36,7 @@
 
 .cart .row:last-child {
     border-bottom: 0;
-    padding: 10px;
+   
 }
 
 .cart_summary table {
