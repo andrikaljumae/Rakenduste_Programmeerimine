@@ -7,16 +7,34 @@ import {connect} from "react-redux";
 import {removeItem} from "../store/actions";
 import {toast} from "react-toastify";
 import * as selectors from "../store/selectors.js";
+import * as services from "../services.js";
 
 class CartPage extends React.PureComponent {
     static propTypes = {
-        cart: PropTypes.arrayOf(PropTypes.shape(ItemProps)).isRequired,
+        cartItemIds: PropTypes.arrayOf(PropTypes.string).isRequired,
         dispatch: PropTypes.func.isRequired,
     };
 
+    state = {
+        cartItems: [],
+    };
+
+    componentDidMount() {
+       const promises = this.props.cartItemIds.map( itemId => services.getItem({itemId}));
+       Promise.all(promises).then( items => {
+           this.setState({
+               cartItems: items,
+           });
+       })
+        .catch(err => {
+            console.error(err);
+            toast.error("Failed fetching items!");
+        });
+    }
+
     calcNumbers = () => {
         const VAT = 20;
-        const sum = Math.round(this.props.cart.reduce((acc, item) => acc + item.price, 0));
+        const sum = Math.round(this.state.cartItems.reduce((acc, item) => acc + item.price, 0));
         const taxes = Math.round(sum / 100 * VAT);
         return {
             sum, taxes
@@ -35,7 +53,7 @@ class CartPage extends React.PureComponent {
                 <div className={"box cart"}>
                     <Table
                         onTrash={this.handleTrash}
-                        rows={this.props.cart}
+                        rows={this.state.cartItems}
                     />
                 </div>
                 <div className={"box cart_summary"}>
@@ -113,7 +131,7 @@ Row.propTypes = {
 
 const mapStateToProps = (store) => {
     return {
-        cart: selectors.getCart(store)
+        cartItemIds: selectors.getCart(store)
     };
 };
 
