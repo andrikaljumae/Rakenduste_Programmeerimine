@@ -1,5 +1,5 @@
 import {
-    ITEMS_SUCCESS, USER_UPDATE, ITEM_ADDED, TOKEN_UPDATE
+    ITEMS_SUCCESS, USER_UPDATE, ITEM_ADDED, TOKEN_UPDATE, ITEM_REMOVED
 } from "./actions";
 import  PropTypes from "prop-types";
 
@@ -36,12 +36,12 @@ export const reducer = (state = initialState, action) => {
                 items: action.payload,
             };
         }
-        // case ITEM_REMOVED: {
-        //     return {
-        //         ...state,
-        //         cart: removeItemById(state.cart, action.payload)
-        //     };
-        // }
+        case ITEM_REMOVED: {
+            return {
+                ...state,
+                user: removeItemFromCart(state.user, action.payload)
+            };
+        }
         case ITEM_ADDED: {
             return {
                 ...state,
@@ -52,6 +52,17 @@ export const reducer = (state = initialState, action) => {
             return state;
         }
     }
+};
+
+const removeItemFromCart = (user, itemId) => {
+    const foundItemIndex = user.cart.findIndex(cartId => cartId === itemId);
+    if(foundItemIndex === -1) return user;
+    const cartCopy = user.cart.slice();
+    cartCopy.splice(foundItemIndex, 1);
+    return {
+        ...user,
+        cart: cartCopy
+    };
 };
 
 const addItemToCart = (user, itemId) => {
