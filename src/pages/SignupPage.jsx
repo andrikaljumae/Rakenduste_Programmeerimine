@@ -31,9 +31,11 @@ class SignupPage extends React.PureComponent {
 
             body: JSON.stringify(this.state),
         })
-        .then( res => res.json())
-        .then( data=>{
-            console.log("data", data);
+        .then( res => {
+            if(!res.ok) throw "Registreerimine ebaõnnestus";
+            return res.json();
+        })
+        .then( () => {
             this.props.history.push("/login");
             toast.success("Kasutaja loodud!");
         })
