@@ -1,3 +1,4 @@
+
 const basePath = "/api/v1";
 
 export const getItems = () => {
@@ -81,3 +82,17 @@ export const signup = ({email, password}) => {
         return res.json();
     });
 }; 
+
+export const addItem = ({imgSrc, title, price, category}) => {
+    return fetch(`${basePath}/items`, {
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify( {imgSrc,title,price,category})
+    })
+    .then(res => {
+        if(!res.ok) throw "itemadd failed";
+        return true;
+    });
+};

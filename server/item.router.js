@@ -15,23 +15,19 @@ router.delete("/:itemId", (req, res) => {
     });
 });
 
+
+  
 router.post("/", (req, res) => {
-    const props = {
-        imgSrc: "google.com",
-        title: "phone red",
-        price: 200,
-        category: "phones",
-    };
-    const item1 = new Item(props);
-    item1.save( err =>{
-        if(err){
-            console.log("Error", err);
-            res.send(500);
-            return;
-        }
-        console.log("Success create!");
-        res.send(201);
-    });
+	const item1 = new Item(req.body);
+	item1.save( err => {
+		if(err){
+			console.log("Error", err);
+			res.send(500);
+			return;
+		}
+		console.log("Success create");
+		res.send(201);
+	});
 });
 
 router.get("/:itemId", (req, res)=>{
@@ -55,5 +51,9 @@ router.get("/", (req, res)=>{
         res.send(items);
     });
   });
+
+ 
+
+
 
 module.exports = router;
